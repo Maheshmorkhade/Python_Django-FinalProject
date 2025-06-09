@@ -1,0 +1,55 @@
+{% extends "layout.html" %}
+{% block title %}About Us{% endblock %}
+
+{% block content %}
+
+<!-- 🌿 Hero Section - About Page -->
+<section class=" bg-blue-400 to-emerald-700 text-white py-24 px-8 rounded-2xl shadow-2xl mb-14">
+  <div class="max-w-7xl mx-auto text-center">
+    <h1 class="text-7xl mb-6 leading-tight font-bold">About Felix ITs</h1>
+    <p class="text-3xl text-white-200 mb-6 ">
+      Building better developers through real-world experience and expert guidance.
+    </p>
+    <a href="{% url 'contact' %}" class="inline-block bg-white text-gray-900 font-semibold text-lg px-6 py-3 rounded-lg shadow-md hover:bg-green-100 transition">
+      Contact Us
+    </a>
+  </div>
+</section>
+
+<!-- 🌿 Our Mission -->
+<section class=" bg-white text-gray-800 py-12 px-6 rounded-xl shadow-md mb-10">
+  <div class="max-w-5xl mx-auto text-center">
+    <h2 class="text-4xl font-bold text-white-800 mb-4">Our Mission</h2>
+    <p class="text-lg text-gray-800">
+      At Felix ITs, our mission is to bridge the gap between education and employment by providing
+      career-oriented training in Full Stack Development, UI/UX Design, Mobile App Development, and more.
+      We empower students to become confident, job-ready professionals with a hands-on learning approach.
+    </p>
+  </div>
+</section>
+
+<!-- 🌿 Values Section -->
+<section class="py-12 px-6">
+  <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-8 text-center">
+    <div class="bg-white p-6 rounded-lg shadow">
+      <h3 class="text-2xl font-semibold text-gray-900 mb-3">Expert Mentors</h3>
+      <p class="text-gray-800">
+        Learn from experienced professionals who guide you every step of the way.
+      </p>
+    </div>
+    <div class="bg-white p-6 rounded-lg shadow">
+      <h3 class="text-2xl font-semibold text-gray-900 mb-3">Practical Training</h3>
+      <p class="text-gray-800">
+        Work on real-time projects and case studies to build your portfolio.
+      </p>
+    </div>
+    <div class="bg-white p-6 rounded-lg shadow">
+      <h3 class="text-2xl font-semibold text-gray-900 mb-3">Placement Assistance</h3>
+      <p class="text-gray-800">
+        Get dedicated support to prepare for interviews and land your dream job.
+      </p>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+{% load static %}
+{% block title %}All Courses{% endblock %}
+
+{% block content %}
+<h1 class="text-3xl font-bold mb-4">Welcome to Felix_Its | All Courses</h1>
+
+<a href="{% url 'create_course' %}" class="bg-blue-600 text-white px-4 py-2 rounded mb-4 inline-block">Add Course</a>
+
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+  {% for felix in felixs %}
+    <div class="bg-white shadow-md p-4 rounded">
+      <img src="{{ felix.image.url }}" alt="{{ felix.name }}" class="w-full h-40 object-cover rounded">
+      <h2 class="text-xl font-semibold mt-2">{{ felix.name }}</h2>
+      <p class="text-sm text-gray-500">Type: {{ felix.get_type_display }}</p>
+      <div class="mt-2 space-x-2">
+        <a href="{% url 'update_course' felix.id %}" class="text-blue-600">Edit</a>
+        <a href="{% url 'delete_course' felix.id %}" class="text-red-600">Delete</a>
+      </div>
+    </div>
+  {% empty %}
+    <p>No courses found.</p>
+  {% endfor %}
+</div>
+{% endblock %}

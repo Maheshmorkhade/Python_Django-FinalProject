@@ -1,0 +1,66 @@
+{% load static tailwind_tags %}
+{% load tz %} <!-- for dynamic year in footer -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{% block title %}Home Page{% endblock %}</title>
+  <link rel="stylesheet" href="{% static 'style.css' %}" />
+  {% tailwind_css %}
+</head>
+<body class="bg-gray-50 text-gray-900 font-sans">
+
+  <!-- Navigation -->
+  <nav class="bg-white shadow-md sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
+      <!-- Logo -->
+      <div class="text-2xl font-extrabold text-red-600 tracking-wide">
+        Felix <span class="text-gray-700">ITs</span>
+      </div>
+
+      <!-- Nav Links -->
+      <ul class="hidden md:flex space-x-8 text-sm font-medium">
+        <li><a href="/" class="text-gray-600 hover:text-red-600 transition">Home</a></li>
+        <li><a href="/Felix_its/" class="text-gray-600 hover:text-red-600 transition">Courses</a></li>
+        <li><a href="/about/" class="text-gray-600 hover:text-red-600 transition">About</a></li>
+        <li><a href="/contact/" class="text-gray-600 hover:text-red-600 transition">Contact</a></li>
+      </ul>
+
+      <!-- Mobile Hamburger Icon -->
+      <button id="menu-toggle" class="md:hidden text-gray-600 hover:text-red-600 focus:outline-none">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="md:hidden px-4 pb-4 hidden">
+      <a href="/" class="block py-2 text-gray-600 hover:text-red-600">Home</a>
+      <a href="/Felix_its/" class="block py-2 text-gray-600 hover:text-red-600">Courses</a>
+      <a href="/about/" class="block py-2 text-gray-600 hover:text-red-600">About</a>
+      <a href="/contact/" class="block py-2 text-gray-600 hover:text-red-600">Contact</a>
+    </div>
+  </nav>
+
+  <!-- Page Content -->
+  <main class="max-w-7xl mx-auto px-4 py-8">
+    {% block content %}{% endblock content %}
+  </main>
+
+  <!-- ✅ Include Footer -->
+  {% include "website/footer.html" %}
+
+  <!-- Toggle Mobile Menu -->
+  <script>
+    const toggleBtn = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    toggleBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+  </script>
+
+</body>
+</html>
